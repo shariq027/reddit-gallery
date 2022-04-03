@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row py-2">
+        <div class="col-auto">
+            <input type="text" class="form-control" id="name" placeholder="Subreddit Name" [(ngModel)]="searchText">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary mb-3" (click)="getImages()">Search</button>
+        </div>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-3">
+        <ng-container *ngFor="let item of images">
+            <div class="col text-center">
+                <img [src]="item.link" referrerpolicy="no-referrer"
+                    onerror="this.onerror=null; this.src='/assets/no-image.png'" alt="" />
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="images.length==0" class="alert alert-danger" role="alert">
+        <span *ngIf="!onLoad">No results.</span> Please enter valid a Subreddit Name
+    </div>
+</div>
