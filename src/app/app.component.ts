@@ -5,16 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'image-gallery';
-  formdata = new FormData();
-  token: string = '';
-  requestOptions = {
-    method: 'POST',
-    body: this.formdata
-  };
-
-  ngOnInit(): void {
-  }
 }
 

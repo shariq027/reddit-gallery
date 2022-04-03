@@ -11,6 +11,6 @@ export class ImgurService {
     ) { }
 
     getImages(searchText: string){
-        return this.http.get('https://api.imgur.com/3/gallery/r/'+searchText);//'https://api.imgur.com/3/account/shariq027/images');
+        return this.http.get('https://api.imgur.com/3/gallery/r/'+searchText);
     }
 }

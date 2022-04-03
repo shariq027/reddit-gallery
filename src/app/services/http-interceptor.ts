@@ -6,15 +6,11 @@ import { environment } from "src/environments/environment";
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const imgurToken = localStorage.getItem('token');
         const authReq = req.clone({
             headers: new HttpHeaders({
-                'Authorization': 'Client-ID '+ environment.clientId// '+imgurToken
+                'Authorization': 'Client-ID '+ environment.clientId
             })
         });
-
-        console.log('Intercepted HTTP call', authReq);
-
         return next.handle(authReq);
     }
 }
