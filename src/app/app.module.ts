@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ImageGridComponent } from './image-grid/image-grid.component';
 import { ImgurService } from './services/imgur.service';
 import { HeaderComponent } from './shared/header/header.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIInterceptor } from './services/http-interceptor';
 import { FormsModule } from '@angular/forms';
 
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
       useClass: APIInterceptor,
       multi: true
     },
-    ImgurService],
+    ImgurService,
+    HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

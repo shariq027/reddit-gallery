@@ -1,12 +1,13 @@
-<div class="container">
-    <div class="row py-2">
+<!-- <div class="container"> -->
+    <form class="row py-2 g-3">
         <div class="col-auto">
-            <input type="text" class="form-control" id="name" placeholder="Subreddit Name" [(ngModel)]="searchText">
+            <input type="text" class="form-control" name="searchText" placeholder="Subreddit Name"
+                [(ngModel)]="searchText">
         </div>
         <div class="col-auto">
             <button class="btn btn-primary mb-3" (click)="getImages()">Search</button>
         </div>
-    </div>
+    </form>
     <div class="row row-cols-2 row-cols-lg-3">
         <ng-container *ngFor="let item of images">
             <div class="col text-center">
@@ -18,4 +19,4 @@
     <div *ngIf="images.length==0" class="alert alert-danger" role="alert">
         <span *ngIf="!onLoad">No results.</span> Please enter valid a Subreddit Name
     </div>
-</div>
+<!-- </div> -->

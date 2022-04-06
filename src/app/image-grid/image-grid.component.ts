@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IImgurImage } from '../Models/IImgurImage';
+import { IImgurResponse } from '../Models/IImgurResponse';
 import { ImgurService } from '../services/imgur.service';
 
 @Component({
@@ -13,14 +14,14 @@ export class ImageGridComponent {
     searchText: string = '';
     onLoad = true;
     constructor(private _imgurService: ImgurService) { }
-    
+
     getImages() {
-        setTimeout(()=>{
-            this.onLoad = false;
-        }, 2000);        
-        this._imgurService.getImages(this.searchText).subscribe((response: any) => {
-            if(response){
+        this._imgurService.getImages(this.searchText).subscribe((response: IImgurResponse) => {
+            if (response?.success) {
                 this.images = response.data;
+            }
+            if (this.onLoad) {
+                this.onLoad = false;
             }
         })
     }
